@@ -27,13 +27,14 @@ contract Barrels is ERC721Enumerable, Ownable {
     return baseURI;
   }
 
+
   function mint(address msg.sender, uint256 _mintAmount) public payable {
     uint256 supply = totalSupply();
     for (uint256 i = 0; i < _mintAmount; i++) { 
-      _safeMint(_to, supply + i);
+      _safeMint(msg.sender, supply + i);
     }
     
-    function tokenURI(uint256 tokenId)
+    function tokenURI(uint256 tokenId) 
     public
     view
     virtual
